@@ -1,0 +1,18 @@
+//apply from: file("${rootDir}/gradle/project.gradle")
+
+subprojects {
+    apply plugin: 'java'
+
+    group = "org.ferret"
+    version = '1.0.0'
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+project('json') {
+    dependencies {
+        implementation 'com.jsoniter:jsoniter:0.9.19'
+    }
+}
