@@ -3,6 +3,9 @@
 subprojects {
     apply plugin: 'java'
 
+    sourceCompatibility = JavaVersion.VERSION_15
+    targetCompatibility = JavaVersion.VERSION_15
+
     group = "org.ferret"
     version = '1.0.0'
 
@@ -11,8 +14,23 @@ subprojects {
     }
 }
 
-project('json') {
+def JUNIT_VERSION = '5.7.0'
+def JAVALIN_VERSION = '3.11.0'
+def JSONITER_VERSION = '0.9.19'
+
+project('ferret-json') {
     dependencies {
-        implementation 'com.jsoniter:jsoniter:0.9.19'
+        implementation project(':ferret-api')
+
+        implementation "com.jsoniter:jsoniter:${JSONITER_VERSION}"
+    }
+}
+
+project('ferret-core') {
+    dependencies {
+        implementation project(':ferret-api')
+        implementation project(':ferret-json')
+
+        implementation "io.javalin:javalin:${JAVALIN_VERSION}"
     }
 }

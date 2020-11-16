@@ -1,3 +1,5 @@
 rootProject.name = 'ferret'
 
-include 'json'
+include 'ferret-api'
+include 'ferret-json'
+include 'ferret-core'
